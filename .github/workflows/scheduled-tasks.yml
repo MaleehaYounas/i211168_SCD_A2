@@ -1,0 +1,46 @@
+name: Scheduled Tasks
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs the task every day at midnight
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "Running scheduled maintenance task"
+
+  backup:
+    runs-on: ubuntu-latest
+
+    strategy: 
+      matrix: 
+        node-version: [18.x, 16.x, 14.x, 12.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+     
+      - name: Create backup directory
+        run: mkdir -p backup
+
+      - name: Copy files to backup directory
+        run: cp -r i211168_SCD_A2/src/* backup/
+
+      - name: Commit backup to repository
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Backup at $(date +"%Y-%m-%d")"
+          git push
+
