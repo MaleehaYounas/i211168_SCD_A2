@@ -34,12 +34,12 @@ jobs:
         run: mkdir -p backup
 
       - name: Copy files to backup directory
-        run: cp -r i211168_SCD_A2/src/* backup/
+        run: cp -r /src/* backup/
 
       - name: Commit backup to repository
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
+        run: echo "
+          git config --local user.email "maleeha139@gmail.com"
+          git config --local user.name "MaleehaYounas"
           git add .
           git commit -m "Backup at $(date +"%Y-%m-%d")"
           git push
