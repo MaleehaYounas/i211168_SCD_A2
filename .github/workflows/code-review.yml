@@ -31,7 +31,7 @@ jobs:
 
       - name: Analyze Code Quality
         #run: npm run analyze  
-         run: echo "Analyzing code quailty"
+        run: echo "Analyzing code quailty"
 
 
       - name: Scan for Security Vulnerabilities
