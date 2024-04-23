@@ -32,5 +32,5 @@ jobs:
         #uses: peaceiris/actions-gh-pages@v3
         #with:
         #  github_token: ${{ secrets.GITHUB_TOKEN }}
-        #  publish_dir: ./site  # Supoose the directory containing built documentation
+        #  publish_dir: ./site  Supoose the directory containing built documentation
         echo "Deploying documentation"
