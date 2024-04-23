@@ -1,6 +1,3 @@
-
-Deployment pipeline
-
 name: Deployment Pipeline
 
 on:
