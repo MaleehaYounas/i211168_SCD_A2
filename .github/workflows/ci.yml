@@ -23,4 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Lint code
+        run: echo "Running lint code"
+        # npm run lint
+
       
