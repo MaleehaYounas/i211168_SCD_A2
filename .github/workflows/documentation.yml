@@ -33,4 +33,4 @@ jobs:
         #with:
         #  github_token: ${{ secrets.GITHUB_TOKEN }}
         #  publish_dir: ./site  Supoose the directory containing built documentation
-        echo "Deploying documentation"
+        run: echo "Deploying documentation"
