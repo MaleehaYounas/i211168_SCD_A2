@@ -17,17 +17,15 @@ jobs:
       - name: Install dependencies
         run: echo "Installing Dependencies"
 
-      - name: Generate Release Notes
-        run: |
-          # These commands or scripts are customised to generate release notes
-          echo "Generating release notes"
+      - name: Generate Release Notes 
+      # These commands or scripts are customised to generate release notes
+        run:  echo "Generating release notes"
 
-      - name: Upload Release Notes
+      #- name: Upload Release Notes
         #uses: actions/upload-artifact@v2
         #with:
-          name: release-notes
-          #path: release_notes.txt 
-          run: echo "Upload release notes"
+      - name: release-notes  #path: release_notes.txt 
+        run: echo "Upload release notes"
 
 
 
