@@ -1,0 +1,36 @@
+name: Documentation Deployment
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name as per your repository's main branch
+    #paths:
+    # - 'docs/**'  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          # Installing any dependencies required for building documentation
+          # Supposing that i am using MkDocs:
+          # pip install mkdocs mkdocs-material
+          echo "Intalling dependencies"
+
+      - name: Build Documentation
+        run: |
+          # Building documentation using MkDocs:
+          # mkdocs build --verbose
+          echo "Building documentation"
+
+      - name: Deploy Documentation
+        #uses: peaceiris/actions-gh-pages@v3
+        #with:
+        #  github_token: ${{ secrets.GITHUB_TOKEN }}
+        #  publish_dir: ./site  # Supoose the directory containing built documentation
+        echo "Deploying documentation"

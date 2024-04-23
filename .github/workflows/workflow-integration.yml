@@ -1,0 +1,33 @@
+
+name: Generate Release Notes
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  generate_release_notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: echo "Installing Dependencies"
+
+      - name: Generate Release Notes
+        run: |
+          # These commands or scripts are customised to generate release notes
+          echo "Generating release notes"
+
+      - name: Upload Release Notes
+        #uses: actions/upload-artifact@v2
+        #with:
+          name: release-notes
+          #path: release_notes.txt 
+          run: echo "Upload release notes"
+
+
+
