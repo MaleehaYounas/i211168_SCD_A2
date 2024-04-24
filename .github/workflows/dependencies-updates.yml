@@ -1,6 +1,28 @@
-version: 2
-updates:
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: daily
+name: Dependency Updates
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs the task every day at midnight
+
+jobs:
+  update_dependencies:
+    runs-on: ubuntu-latest
+    
+    strategy: 
+      matrix: 
+        node-version: [18.x, 16.x, 14.x, 12.x]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update dependencies
+        run: npm update
+
